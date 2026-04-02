@@ -125,6 +125,16 @@ body {
   width: 48px;
   height: 48px;
   flex-shrink: 0;
+  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.logo-link:hover .logo-svg {
+  animation: logo-spin 8s linear infinite;
+}
+
+@keyframes logo-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
 .logo-wordmark {
@@ -145,8 +155,8 @@ body {
   font-family: var(--font-label);
   font-size: var(--text-xs);
   font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-transform: none;
   text-decoration: none;
   color: var(--color-text-muted);
   position: relative;
@@ -341,7 +351,7 @@ body {
   font-family: var(--font-label);
   font-size: var(--text-xs);
   letter-spacing: 0.08em;
-  text-transform: uppercase;
+  text-transform: none;
   font-weight: 500;
   opacity: 0;
   transform: translateY(4px);
@@ -390,6 +400,28 @@ body {
 }
 
 /* ============================================================
+   SEE MORE LINK
+   ============================================================ */
+
+.see-more-link {
+  grid-column: 1 / -1;
+  display: inline-block;
+  margin-top: var(--space-6);
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: lowercase;
+  text-decoration: none;
+  color: var(--color-text-muted);
+  transition: color var(--transition-interactive);
+}
+
+.see-more-link:hover {
+  color: var(--color-text);
+}
+
+/* ============================================================
    CONTACT — Anecdote-style minimal form
    ============================================================ */
 
@@ -428,8 +460,8 @@ body {
 .contact-links a {
   font-family: var(--font-label);
   font-size: var(--text-xs);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-transform: none;
   font-weight: 500;
   color: var(--color-text-muted);
   text-decoration: none;

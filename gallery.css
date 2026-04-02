@@ -1,0 +1,32 @@
+/* Gallery Page — Full photo grid */
+
+.gallery-page-header {
+  padding-block: var(--space-8) var(--space-12);
+}
+
+.gallery-page-header h1 {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: var(--color-text);
+}
+
+.gallery-full {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+  padding-bottom: var(--space-16);
+}
+
+@media (min-width: 768px) {
+  .gallery-full {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .gallery-full {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
