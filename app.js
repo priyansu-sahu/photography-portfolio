@@ -6,8 +6,10 @@
 (function () {
   const toggle = document.querySelector('[data-theme-toggle]');
   const root = document.documentElement;
-  let theme = root.getAttribute('data-theme') ||
-    (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+  // Priority: 1) saved preference, 2) system preference
+  let saved; try { saved = localStorage.getItem('theme'); } catch(e) {}
+  let theme = saved || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 
   root.setAttribute('data-theme', theme);
   updateToggleIcon();
@@ -15,6 +17,7 @@
   toggle && toggle.addEventListener('click', function () {
     theme = theme === 'dark' ? 'light' : 'dark';
     root.setAttribute('data-theme', theme);
+    try { localStorage.setItem('theme', theme); } catch(e) {}
     toggle.setAttribute('aria-label', 'Switch to ' + (theme === 'dark' ? 'light' : 'dark') + ' mode');
     updateToggleIcon();
   });
