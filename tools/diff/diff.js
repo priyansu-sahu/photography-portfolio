@@ -150,7 +150,7 @@
 
     paired.forEach(function (entry) {
       if (entry.type === 'equal') {
-        const row = makeLine('equal', lineNumA + ' / ' + lineNumB, esc(entry.a));
+        const row = makeLine('equal', lineNumA, esc(entry.a));
         output.appendChild(row);
         lineNumA++; lineNumB++;
 
