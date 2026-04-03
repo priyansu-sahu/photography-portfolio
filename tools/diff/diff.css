@@ -216,21 +216,21 @@
 
 /* Inline character highlights */
 .diff-line--removed .diff-mark {
-  background: rgba(180, 60, 60, 0.35);
-  color: inherit;
+  background: #a13030;
+  color: #fff;
   border-radius: 2px;
-  padding: 0 1px;
+  padding: 0 2px;
 }
 
 .diff-line--added .diff-mark {
-  background: rgba(66, 153, 90, 0.35);
-  color: inherit;
+  background: #2d7a3a;
+  color: #fff;
   border-radius: 2px;
-  padding: 0 1px;
+  padding: 0 2px;
 }
 
-[data-theme="dark"] .diff-line--removed .diff-mark { background: rgba(220, 80, 80, 0.4); }
-[data-theme="dark"] .diff-line--added .diff-mark   { background: rgba(80, 180, 100, 0.4); }
+[data-theme="dark"] .diff-line--removed .diff-mark { background: #c04040; color: #fff; }
+[data-theme="dark"] .diff-line--added .diff-mark   { background: #3a9e4e; color: #fff; }
 
 /* Dark mode colour adjustments */
 [data-theme="dark"] .diff-line--added .diff-line-num { color: #6dbf7e; background: rgba(66,153,90,0.15); }
