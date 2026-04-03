@@ -8,7 +8,6 @@
   const statCharsNS= document.getElementById('stat-chars-no-spaces');
   const statLines  = document.getElementById('stat-lines');
   const statSents  = document.getElementById('stat-sentences');
-  const statRead   = document.getElementById('stat-read-time');
 
   if (!input) return;
 
@@ -18,14 +17,13 @@
     const charsNoSp = text.replace(/\s/g, '').length;
     const lines     = text === '' ? 0 : text.split('\n').length;
     const sentences = text.trim() === '' ? 0 : (text.match(/[^.!?]*[.!?]+/g) || []).length;
-    const readMin   = Math.ceil(words / 238); // avg reading speed
+    const empty = text.trim() === '';
+    statWords.textContent   = empty ? '—' : words.toLocaleString();
+    statChars.textContent   = empty ? '—' : chars.toLocaleString();
+    statCharsNS.textContent = empty ? '—' : charsNoSp.toLocaleString();
+    statLines.textContent   = empty ? '—' : lines.toLocaleString();
+    statSents.textContent   = empty ? '—' : sentences.toLocaleString();
 
-    statWords.textContent  = words.toLocaleString();
-    statChars.textContent  = chars.toLocaleString();
-    statCharsNS.textContent= charsNoSp.toLocaleString();
-    statLines.textContent  = lines.toLocaleString();
-    statSents.textContent  = sentences.toLocaleString();
-    statRead.textContent   = words === 0 ? '0 min' : readMin + ' min';
   }
 
   input.addEventListener('input', function () {

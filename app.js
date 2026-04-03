@@ -39,8 +39,9 @@
 
   const lightboxImg = document.getElementById('lightbox-img');
   const closeBtn = lightbox.querySelector('.lightbox-close');
-  const prevBtn = document.getElementById('lightbox-prev');
-  const nextBtn = document.getElementById('lightbox-next');
+  const prevBtn   = document.getElementById('lightbox-prev');
+  const nextBtn   = document.getElementById('lightbox-next');
+  const counter   = document.getElementById('lightbox-counter');
 
   const items = Array.from(document.querySelectorAll('[data-lightbox]'));
   let currentIndex = -1;
@@ -67,6 +68,7 @@
   function updateNav() {
     if (prevBtn) prevBtn.style.opacity = currentIndex > 0 ? '1' : '0.2';
     if (nextBtn) nextBtn.style.opacity = currentIndex < items.length - 1 ? '1' : '0.2';
+    if (counter) counter.textContent = items.length > 1 ? (currentIndex + 1) + ' / ' + items.length : '';
   }
 
   function showPrev() {

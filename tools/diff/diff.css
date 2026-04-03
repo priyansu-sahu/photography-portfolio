@@ -143,6 +143,14 @@
   display: none;
 }
 
+.diff-empty {
+  padding: var(--space-6) var(--space-6);
+  font-family: var(--font-label);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
 .diff-line {
   display: flex;
   align-items: stretch;
@@ -158,7 +166,7 @@
   width: 44px;
   padding: 0.2em var(--space-3);
   text-align: right;
-  font-size: 0.7rem;
+  font-size: var(--text-xs);
   color: var(--color-text-faint);
   background: var(--color-surface);
   border-right: 1px solid var(--color-divider);
@@ -228,7 +236,7 @@
 }
 
 [data-theme="dark"] .diff-line--removed .diff-mark { background: #c04040; color: #fff; }
-[data-theme="dark"] .diff-line--added .diff-mark   { background: #3a9e4e; color: #fff; }
+[data-theme="dark"] .diff-line--added .diff-mark   { background: #276e34; color: #fff; }
 
 /* Dark mode colour adjustments */
 [data-theme="dark"] .diff-line--added .diff-line-num { color: #6dbf7e; background: rgba(66,153,90,0.15); }

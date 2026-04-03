@@ -205,6 +205,11 @@
   // ============================================================
 
   compareBtn.addEventListener('click', function () {
+    if (!textA.value.trim() && !textB.value.trim()) {
+      output.innerHTML = '<div class="diff-empty">Paste text into both fields to compare.</div>';
+      stats.textContent = '';
+      return;
+    }
     const linesA = textA.value.split('\n');
     const linesB = textB.value.split('\n');
     const result = lineDiff(linesA, linesB);

@@ -548,10 +548,22 @@ body {
 }
 
 .lightbox-prev { left: var(--space-6); }
-.lightbox-next { right: calc(var(--space-6) + 44px); }
+.lightbox-next { right: var(--space-6); }
 
 .lightbox-prev:hover,
 .lightbox-next:hover { color: #fff; }
+
+.lightbox-counter {
+  position: absolute;
+  bottom: var(--space-6);
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.5);
+  user-select: none;
+}
 
 /* ============================================================
    SCROLL REVEALS — CSS-only, opacity-based (no layout shift)
