@@ -14,7 +14,7 @@
   function count(text) {
     const words     = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
     const chars     = text.length;
-    const charsNoSp = text.replace(/\s/g, '').length;
+    const charsNoSp = (text.match(/ /g) || []).length;
     const lines     = text === '' ? 0 : text.split('\n').length;
     const sentences = text.trim() === '' ? 0 : (text.match(/[^.!?]*[.!?]+/g) || []).length;
     const empty = text.trim() === '';
