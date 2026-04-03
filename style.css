@@ -472,37 +472,7 @@ body {
   color: var(--color-text);
 }
 
-/* ============================================================
-   FOOTER — Oxidist-style ornamental rule
-   ============================================================ */
 
-.site-footer {
-  padding-block: var(--space-12) var(--space-8);
-  text-align: center;
-}
-
-.footer-rule {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: var(--space-6);
-  border-top: 1px solid var(--color-divider);
-  padding-top: var(--space-8);
-}
-
-.footer-ornament {
-  width: 56px;
-  height: 56px;
-  color: var(--color-text-muted);
-  flex-shrink: 0;
-}
-
-.footer-text {
-  font-family: var(--font-label);
-  font-size: var(--text-xs);
-  color: var(--color-text-faint);
-  letter-spacing: 0.06em;
-}
 
 /* ============================================================
    LIGHTBOX
