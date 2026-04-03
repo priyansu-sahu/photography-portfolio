@@ -199,8 +199,6 @@
 .diff-line--removed .diff-line-content {
   background: rgba(180, 60, 60, 0.08);
   color: var(--color-text);
-  text-decoration: line-through;
-  text-decoration-color: rgba(161, 48, 48, 0.5);
 }
 
 .diff-line--removed .diff-line-content::before {
