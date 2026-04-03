@@ -20,7 +20,7 @@
 
   <link rel="stylesheet" href="../base.css">
   <link rel="stylesheet" href="../style.css">
-  <link rel="stylesheet" href="../blog.css">
+  <link rel="stylesheet" href="tools.css">
 
   <script>
     (function(){
@@ -71,21 +71,29 @@
 
     <main id="main">
 
-      <section class="blog-header">
+      <div class="tools-header">
         <h1>tools</h1>
-      </section>
+        <p>Small utilities.</p>
+      </div>
 
-      <ul class="post-list">
+      <div class="tools-grid">
 
-        <li class="post-item reveal">
-          <a href="../tools/diff" class="post-link">
-            <span class="post-date">utility</span>
-            <span class="post-title">diff checker</span>
-            <p class="post-excerpt">Paste two blocks of text and instantly see what changed — additions, deletions, and unchanged lines highlighted side by side.</p>
-          </a>
-        </li>
+        <a href="../tools/diff" class="tool-card">
+          <div class="tool-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M9 7H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2v-3"/>
+              <path d="M9 14h10V4H9v10Z"/>
+              <path d="M12 11h4M12 7h4"/>
+            </svg>
+          </div>
+          <div class="tool-info">
+            <span class="tool-name">diff checker</span>
+            <span class="tool-desc">Compare two blocks of text line by line.</span>
+          </div>
+          <span class="tool-arrow">&rarr;</span>
+        </a>
 
-      </ul>
+      </div>
 
     </main>
 
