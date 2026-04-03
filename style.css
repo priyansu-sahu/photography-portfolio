@@ -45,7 +45,7 @@
   --color-surface:     #f5f2eb;
   --color-text:        #1a1815;
   --color-text-muted:  #6e6b64;
-  --color-text-faint:  #a8a5a0;
+  --color-text-faint:  #767370;
   --color-accent:      #5b3b40;
   --color-accent-hover:#4a2d32;
   --color-border:      #d4d0c8;
@@ -58,7 +58,7 @@
   --color-surface:     #1e1d1a;
   --color-text:        #d5d3ce;
   --color-text-muted:  #8a8882;
-  --color-text-faint:  #5a5955;
+  --color-text-faint:  #777471;
   --color-accent:      #c2929a;
   --color-accent-hover:#d4a8af;
   --color-border:      #3d3c38;
@@ -71,7 +71,7 @@
     --color-surface:     #1e1d1a;
     --color-text:        #d5d3ce;
     --color-text-muted:  #8a8882;
-    --color-text-faint:  #5a5955;
+    --color-text-faint:  #777471;
     --color-accent:      #c2929a;
     --color-accent-hover:#d4a8af;
     --color-border:      #3d3c38;
@@ -182,7 +182,9 @@ body {
 }
 
 .theme-toggle {
-  padding: var(--space-2);
+  padding: var(--space-3);
+  min-width: 44px;
+  min-height: 44px;
   color: var(--color-text-muted);
   display: flex;
   align-items: center;
@@ -346,7 +348,7 @@ body {
   left: 0;
   right: 0;
   padding: var(--space-4) var(--space-4) var(--space-3);
-  background: linear-gradient(to top, oklch(0 0 0 / 0.55), transparent);
+  background: linear-gradient(to top, rgba(0,0,0,0.72), transparent);
   color: #f0ede6;
   font-family: var(--font-label);
   font-size: var(--text-xs);
@@ -361,6 +363,14 @@ body {
 .gallery-item:hover .gallery-caption {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Always show captions on touch devices */
+@media (hover: none) {
+  .gallery-caption {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ============================================================
@@ -482,19 +492,20 @@ body {
   position: fixed;
   inset: 0;
   z-index: 100;
-  background: oklch(0 0 0 / 0.92);
-  display: none;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
   align-items: center;
   justify-content: center;
   padding: var(--space-8);
   cursor: zoom-out;
   opacity: 0;
+  pointer-events: none;
   transition: opacity 300ms var(--ease-out);
 }
 
 .lightbox.active {
-  display: flex;
   opacity: 1;
+  pointer-events: auto;
 }
 
 .lightbox img {
@@ -510,12 +521,37 @@ body {
   right: var(--space-6);
   color: #d5d3ce;
   padding: var(--space-2);
+  min-width: 44px;
+  min-height: 44px;
   z-index: 101;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.lightbox-close:hover {
-  color: #fff;
+.lightbox-close:hover { color: #fff; }
+
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #d5d3ce;
+  padding: var(--space-3);
+  min-width: 44px;
+  min-height: 44px;
+  z-index: 101;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 200ms, opacity 200ms;
 }
+
+.lightbox-prev { left: var(--space-6); }
+.lightbox-next { right: calc(var(--space-6) + 44px); }
+
+.lightbox-prev:hover,
+.lightbox-next:hover { color: #fff; }
 
 /* ============================================================
    SCROLL REVEALS — CSS-only, opacity-based (no layout shift)
@@ -544,6 +580,9 @@ body {
 .gallery-item:nth-child(4) { animation-delay: 180ms; }
 .gallery-item:nth-child(5) { animation-delay: 240ms; }
 .gallery-item:nth-child(6) { animation-delay: 300ms; }
+.gallery-item:nth-child(7) { animation-delay: 360ms; }
+.gallery-item:nth-child(8) { animation-delay: 420ms; }
+.gallery-item:nth-child(9) { animation-delay: 480ms; }
 
 /* ============================================================
    DECORATIVE — Oxidist star bullets
