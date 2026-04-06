@@ -290,7 +290,6 @@ body {
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: 1fr;
   gap: var(--space-4);
 }
 
@@ -309,10 +308,6 @@ body {
   cursor: pointer;
 }
 
-.gallery-item--portrait {
-  grid-row: span 2;
-  aspect-ratio: auto;
-}
 
 .gallery-item img {
   width: 100%;
