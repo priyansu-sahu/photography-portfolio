@@ -209,7 +209,7 @@ body {
   .hero {
     grid-template-columns: 160px 1fr;
     gap: var(--space-12);
-    padding-block: var(--space-16) var(--space-20);
+    padding-block: var(--space-16) var(--space-12);
   }
 }
 
