@@ -254,7 +254,7 @@ body {
 .section-row {
   display: grid;
   gap: var(--space-6);
-  padding-block: var(--space-12);
+  padding-block: var(--space-8);
   border-top: 1px solid var(--color-divider);
 }
 
@@ -262,7 +262,7 @@ body {
   .section-row {
     grid-template-columns: 160px 1fr;
     gap: var(--space-12);
-    padding-block: var(--space-16);
+    padding-block: var(--space-10);
   }
 }
 
@@ -417,7 +417,8 @@ body {
 .see-more-link {
   grid-column: 1 / -1;
   display: inline-block;
-  margin-top: var(--space-6);
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-2);
   font-family: var(--font-label);
   font-size: var(--text-xs);
   font-weight: 500;
