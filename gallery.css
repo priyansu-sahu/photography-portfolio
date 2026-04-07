@@ -15,6 +15,7 @@
 .gallery-full {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: auto;
   gap: var(--space-4);
   padding-bottom: var(--space-16);
 }
@@ -29,4 +30,15 @@
   .gallery-full {
     grid-template-columns: repeat(4, 1fr);
   }
+}
+
+.gallery-full .gallery-item--portrait {
+  grid-row: span 2;
+  aspect-ratio: auto;
+}
+
+.gallery-full .gallery-item--portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
