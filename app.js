@@ -15,11 +15,22 @@
   updateToggleIcon();
 
   toggle && toggle.addEventListener('click', function () {
-    theme = theme === 'dark' ? 'light' : 'dark';
-    root.setAttribute('data-theme', theme);
-    try { localStorage.setItem('theme', theme); } catch(e) {}
-    toggle.setAttribute('aria-label', 'Switch to ' + (theme === 'dark' ? 'light' : 'dark') + ' mode');
-    updateToggleIcon();
+    // Trigger spin animation
+    toggle.classList.remove('toggling');
+    void toggle.offsetWidth; // force reflow to restart animation
+    toggle.classList.add('toggling');
+
+    // Swap theme at the midpoint of the animation (when icon is smallest)
+    setTimeout(function () {
+      theme = theme === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', theme);
+      try { localStorage.setItem('theme', theme); } catch(e) {}
+      toggle.setAttribute('aria-label', 'Switch to ' + (theme === 'dark' ? 'light' : 'dark') + ' mode');
+      updateToggleIcon();
+    }, 200);
+
+    // Clean up animation class
+    setTimeout(function () { toggle.classList.remove('toggling'); }, 500);
   });
 
   function updateToggleIcon() {
