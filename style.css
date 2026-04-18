@@ -146,9 +146,9 @@ body {
 }
 
 .logo-wordmark--tegaki {
-  font-size: clamp(1.3rem, 1rem + 1vw, 1.7rem);
+  display: inline-block;
+  font-size: var(--text-lg);
   color: var(--color-text);
-  --tegaki-color: var(--color-text);
   vertical-align: middle;
 }
 
