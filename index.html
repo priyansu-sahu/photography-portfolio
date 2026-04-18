@@ -72,7 +72,8 @@
           <!-- Center p -->
           <text x="24" y="28" text-anchor="middle" dominant-baseline="auto" font-family="'Crimson Pro', Georgia, serif" font-style="italic" font-size="15" font-weight="300" fill="currentColor" stroke="none">p</text>
         </svg>
-        <span class="logo-wordmark">priyansu s.</span>
+        <tegaki-renderer font="Parisienne" text="priyansu s." class="logo-wordmark logo-wordmark--tegaki" style="display:inline-block;"></tegaki-renderer>
+        <noscript><span class="logo-wordmark">priyansu s.</span></noscript>
       </a>
 
       <nav class="header-nav" aria-label="Primary">
@@ -200,5 +201,11 @@
   </div>
 
   <script src="./app.js" defer></script>
+  <script type="module">
+    import { registerTegakiElement, TegakiEngine } from 'https://esm.sh/tegaki@0.13.0/wc';
+    import parisienne from 'https://esm.sh/tegaki@0.13.0/fonts/parisienne';
+    TegakiEngine.registerBundle(parisienne);
+    registerTegakiElement();
+  </script>
 </body>
 </html>
