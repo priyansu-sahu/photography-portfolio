@@ -51,7 +51,7 @@
           <line x1="13" y1="35" x2="8.3" y2="39.7" stroke="currentColor" stroke-width="0.5"/>
           <text x="24" y="28" text-anchor="middle" dominant-baseline="auto" font-family="'Crimson Pro', Georgia, serif" font-style="italic" font-size="15" font-weight="300" fill="currentColor" stroke="none">p</text>
         </svg>
-        <span class="logo-wordmark">priyansu s.</span>
+        <span class="logo-wordmark" id="logo-wordmark">priyansu s.</span>
       </a>
 
       <nav class="header-nav" aria-label="Primary">
@@ -116,5 +116,23 @@
 
   <script src="../../app.js" defer></script>
   <script src="wordcount.js" defer></script>
+  <script type="module">
+    (async function() {
+      try {
+        const { registerTegakiElement, TegakiEngine } = await import('https://esm.sh/tegaki@0.13.0/wc');
+        const fontModule = await import('https://esm.sh/tegaki@0.13.0/fonts/caveat');
+        const bundle = fontModule.default;
+        TegakiEngine.registerBundle(bundle);
+        registerTegakiElement();
+        const wordmark = document.getElementById('logo-wordmark');
+        if (!wordmark) return;
+        const el = document.createElement('tegaki-renderer');
+        el.setAttribute('font', bundle.family);
+        el.setAttribute('text', 'priyansu s.');
+        el.className = 'logo-wordmark logo-wordmark--tegaki';
+        wordmark.replaceWith(el);
+      } catch (e) {}
+    })();
+  </script>
 </body>
 </html>
