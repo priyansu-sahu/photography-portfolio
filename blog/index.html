@@ -41,7 +41,7 @@
   <div class="site-wrapper">
 
     <header class="site-header">
-      <a href="../" class="logo-link" aria-label="Home">
+      <a href="../index.html" class="logo-link" aria-label="Home">
         <svg class="logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="1.2"/>
           <circle cx="24" cy="24" r="14" stroke="currentColor" stroke-width="1"/>
@@ -55,11 +55,12 @@
           <line x1="13" y1="35" x2="8.3" y2="39.7" stroke="currentColor" stroke-width="0.5"/>
           <text x="24" y="28" text-anchor="middle" dominant-baseline="auto" font-family="'Crimson Pro', Georgia, serif" font-style="italic" font-size="15" font-weight="300" fill="currentColor" stroke="none">p</text>
         </svg>
-        <span class="logo-wordmark" id="logo-wordmark">priyansu s.</span>
+        <span class="logo-wordmark">priyansu s.</span>
       </a>
 
       <nav class="header-nav" aria-label="Primary">
-        <a href="../blog" class="nav-link" style="color: var(--color-text);">writing</a>
+        <a href="../gallery/index.html" class="nav-link">gallery</a>
+        <a href="../blog/index.html" class="nav-link" aria-current="page">writing</a>
         <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <circle cx="12" cy="12" r="5"/>
@@ -78,10 +79,10 @@
       <ul class="post-list">
 
         <li class="post-item reveal">
-          <a href="../writing/on-looking-slowly" class="post-link">
+          <a href="../writing/on-looking-slowly/index.html" class="post-link">
             <span class="post-date">april 3, 2026</span>
             <span class="post-title">on looking slowly</span>
-            <p class="post-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua — a few thoughts on what it means to really stop and look at something.</p>
+            <p class="post-excerpt">A short note on attention, distance, and the quiet work of letting a frame arrive before trying to take it.</p>
           </a>
         </li>
 
@@ -92,23 +93,5 @@
   </div>
 
   <script src="../app.js" defer></script>
-  <script type="module">
-    (async function() {
-      try {
-        const { registerTegakiElement, TegakiEngine } = await import('https://esm.sh/tegaki@0.13.0/wc');
-        const fontModule = await import('https://esm.sh/tegaki@0.13.0/fonts/caveat');
-        const bundle = fontModule.default;
-        TegakiEngine.registerBundle(bundle);
-        registerTegakiElement();
-        const wordmark = document.getElementById('logo-wordmark');
-        if (!wordmark) return;
-        const el = document.createElement('tegaki-renderer');
-        el.setAttribute('font', bundle.family);
-        el.setAttribute('text', 'priyansu s.');
-        el.className = 'logo-wordmark logo-wordmark--tegaki';
-        wordmark.replaceWith(el);
-      } catch (e) {}
-    })();
-  </script>
 </body>
 </html>

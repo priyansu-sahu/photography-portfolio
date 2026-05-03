@@ -41,7 +41,7 @@
   <div class="site-wrapper">
 
     <header class="site-header">
-      <a href="../../" class="logo-link" aria-label="Home">
+      <a href="../../index.html" class="logo-link" aria-label="Home">
         <svg class="logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="1.2"/>
           <circle cx="24" cy="24" r="14" stroke="currentColor" stroke-width="1"/>
@@ -55,11 +55,12 @@
           <line x1="13" y1="35" x2="8.3" y2="39.7" stroke="currentColor" stroke-width="0.5"/>
           <text x="24" y="28" text-anchor="middle" dominant-baseline="auto" font-family="'Crimson Pro', Georgia, serif" font-style="italic" font-size="15" font-weight="300" fill="currentColor" stroke="none">p</text>
         </svg>
-        <span class="logo-wordmark" id="logo-wordmark">priyansu s.</span>
+        <span class="logo-wordmark">priyansu s.</span>
       </a>
 
       <nav class="header-nav" aria-label="Primary">
-        <a href="../../blog" class="nav-link">&larr; writing</a>
+        <a href="../../blog/index.html" class="nav-link nav-link--back">&larr; writing</a>
+        <a href="../../gallery/index.html" class="nav-link">gallery</a>
         <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <circle cx="12" cy="12" r="5"/>
@@ -80,15 +81,15 @@
         <div></div><!-- ledger spacer -->
         <div class="article-content">
 
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+          <p>Looking slowly begins before the camera is raised. It is the small pause between noticing a scene and deciding what it might mean: the line of a path, a person crossing into light, a horizon that keeps changing even when it appears still.</p>
 
-          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+          <p>Most places do not announce themselves all at once. They reveal their rhythm through repeated glances. A street corner becomes less about buildings and more about crossings. A cliff becomes less about scale and more about the weather moving over it.</p>
 
-          <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. Ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+          <p>The camera helps, but it also interrupts. It asks for an edge, a frame, a choice. The work is to keep that choice gentle enough that the place remains larger than the photograph.</p>
 
-          <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati.</p>
+          <p>When a frame works, it feels less like taking something and more like staying with it long enough to be allowed a record. The image is not proof of having been there. It is a small note from the act of paying attention.</p>
 
-          <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.</p>
+          <p>That is the kind of looking I want to practice: slower than habit, quieter than spectacle, and patient enough to let ordinary light become memorable.</p>
 
         </div>
       </div>
@@ -98,23 +99,5 @@
   </div>
 
   <script src="../../app.js" defer></script>
-  <script type="module">
-    (async function() {
-      try {
-        const { registerTegakiElement, TegakiEngine } = await import('https://esm.sh/tegaki@0.13.0/wc');
-        const fontModule = await import('https://esm.sh/tegaki@0.13.0/fonts/caveat');
-        const bundle = fontModule.default;
-        TegakiEngine.registerBundle(bundle);
-        registerTegakiElement();
-        const wordmark = document.getElementById('logo-wordmark');
-        if (!wordmark) return;
-        const el = document.createElement('tegaki-renderer');
-        el.setAttribute('font', bundle.family);
-        el.setAttribute('text', 'priyansu s.');
-        el.className = 'logo-wordmark logo-wordmark--tegaki';
-        wordmark.replaceWith(el);
-      } catch (e) {}
-    })();
-  </script>
 </body>
 </html>

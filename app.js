@@ -35,11 +35,37 @@
 
   function updateToggleIcon() {
     if (!toggle) return;
+    toggle.setAttribute('aria-label', 'Switch to ' + (theme === 'dark' ? 'light' : 'dark') + ' mode');
     if (theme === 'dark') {
       toggle.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
     } else {
       toggle.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
     }
+  }
+})();
+
+// --- Tegaki wordmark enhancement ---
+(async function () {
+  const wordmark = document.querySelector('.logo-wordmark');
+  if (!wordmark) return;
+
+  try {
+    const tegaki = await import('https://esm.sh/tegaki@0.13.0/wc');
+    const fontModule = await import('https://esm.sh/tegaki@0.13.0/fonts/caveat');
+    const bundle = fontModule.default;
+    const text = (wordmark.textContent || 'priyansu s.').trim();
+
+    tegaki.TegakiEngine.registerBundle(bundle);
+    tegaki.registerTegakiElement();
+
+    const el = document.createElement('tegaki-renderer');
+    el.setAttribute('font', bundle.family);
+    el.setAttribute('text', text);
+    el.setAttribute('aria-label', text);
+    el.className = 'logo-wordmark logo-wordmark--tegaki';
+    wordmark.replaceWith(el);
+  } catch (e) {
+    // Keep the static wordmark as a readable fallback.
   }
 })();
 
